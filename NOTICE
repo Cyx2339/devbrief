@@ -1,0 +1,9 @@
+DevBrief is derived from chatgpt-vue3-light-mvp by Wisdom (pdsuwwz).
+Upstream: https://github.com/pdsuwwz/chatgpt-vue3-light-mvp
+Source snapshot: e0f4678c5f6c7476f3ee8dda6308657a401f5b18
+
+The upstream MIT license and original README are retained in LICENSE and
+docs/upstream-README.md. DevBrief adds a structured workbench, a FastAPI
+model gateway, local draft history, editable Markdown export, and tests.
+
+The bundled Vue runtime retains its own license at preview/assets/VUE-LICENSE.

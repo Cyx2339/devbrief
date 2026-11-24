@@ -15,7 +15,7 @@
 💭 一个可二次开发 Chat Bot 对话 Web 端原型模板, 基于 Vue 3、Vite 8、TypeScript、Naive UI、Pinia、UnoCSS 等主流技术构建, 🧤简单集成大模型 API, 采用单轮 AI 问答对话模式, 每次提问独立响应, 无需上下文, 支持打字机效果流式输出, 集成 markdown-it, highlight.js, 数学公式, Mermaid 图表语法高亮预览, 💼 易于定制和快速搭建 Chat 类大语言模型产品
 
 > [!NOTE]
-> 本项目已将核心实现“蒸馏”为可复用的 Agent Skill：[`chatbot-mvp-distillation`](.agents/skills/chatbot-mvp-distillation/SKILL.md)，并提供中文版：[`chatbot-mvp-distillation-zh`](.agents/skills/chatbot-mvp-distillation-zh/SKILL.md)。如果你想在其他项目中借鉴本项目的 SSE 流式渲染、模型适配、打字机输出、Markdown/KaTeX/Mermaid 渲染等能力，可以把它当作一份面向 AI Agent 的架构蓝图使用。
+> 本项目已将核心实现“蒸馏”为可复用的 Agent Skill：[`chatbot-mvp-distillation`](../.agents/skills/chatbot-mvp-distillation/SKILL.md)，并提供中文版：[`chatbot-mvp-distillation-zh`](../.agents/skills/chatbot-mvp-distillation-zh/SKILL.md)。如果你想在其他项目中借鉴本项目的 SSE 流式渲染、模型适配、打字机输出、Markdown/KaTeX/Mermaid 渲染等能力，可以把它当作一份面向 AI Agent 的架构蓝图使用。
 
 
 __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/chatgpt-vue3-light-mvp)__
@@ -41,7 +41,7 @@ __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/chatgpt-vue3-light-mvp
 
 ## 🧩 Agent Skill 蒸馏
 
-本仓库额外提供了项目本地 Skill：英文版 [`chatbot-mvp-distillation`](.agents/skills/chatbot-mvp-distillation/SKILL.md)，以及中文版 [`chatbot-mvp-distillation-zh`](.agents/skills/chatbot-mvp-distillation-zh/SKILL.md)。它们不是运行时功能，也不是 npm 包，而是把当前 MVP 中已经验证过的工程经验整理成一组可被 AI 编程 Agent 读取的架构参考。类似的沉淀方式在很多团队里会以 `playbook`、`recipe`、`blueprint`、`architecture notes` 等形式存在；这里选择用 Skill，是为了让其他项目在开发类似 Chat Bot 产品时，可以更直接地复用这些设计经验。
+本仓库额外提供了项目本地 Skill：英文版 [`chatbot-mvp-distillation`](../.agents/skills/chatbot-mvp-distillation/SKILL.md)，以及中文版 [`chatbot-mvp-distillation-zh`](../.agents/skills/chatbot-mvp-distillation-zh/SKILL.md)。它们不是运行时功能，也不是 npm 包，而是把当前 MVP 中已经验证过的工程经验整理成一组可被 AI 编程 Agent 读取的架构参考。类似的沉淀方式在很多团队里会以 `playbook`、`recipe`、`blueprint`、`architecture notes` 等形式存在；这里选择用 Skill，是为了让其他项目在开发类似 Chat Bot 产品时，可以更直接地复用这些设计经验。
 
 这个 Skill 面向“其他项目借鉴”，重点不在于逐文件复制当前仓库，而在于提炼可迁移的模块边界和实现策略：
 
@@ -175,7 +175,7 @@ pnpm dev
 
 本项目采用纯前端架构，所有后端服务均由外部或本地其他服务提供。为解决开发环境中的跨域问题，项目使用了 `Vite` 的代理功能 `server.proxy`（详见[官方文档](https://vite.dev/config/server-options.html#server-proxy)）
 
-以下是当前仓库的[代理配置](./vite.config.ts#L23)
+以下是当前仓库的[代理配置](.././vite.config.ts#L23)
 
 ```ts
 server: {
@@ -227,7 +227,7 @@ server: {
 
 ## 🌍 模拟/真实 API 模式切换
 
-本项目提供了一个模拟开发模式，用于在本地开发环境或 Github 等部署环境中模拟调用大模型相关策略，无需调用真实 API 接口。该模式在 [src/config/env.ts](src/config/env.ts) 文件中定义，由以下代码控制：
+本项目提供了一个模拟开发模式，用于在本地开发环境或 Github 等部署环境中模拟调用大模型相关策略，无需调用真实 API 接口。该模式在 [src/config/env.ts](../src/config/env.ts) 文件中定义，由以下代码控制：
 
 ```ts
 // src/config/env.ts
@@ -349,7 +349,7 @@ export const isGithubDeployed = process.env.VITE_ROUTER_MODE === 'hash'
 
 ## 🔌 大模型响应处理
 
-由于不同大模型的 API 响应数据结构存在差异，本项目通过**统一的模型映射机制**和**响应转换函数**实现了多模型的无缝集成。核心逻辑封装在 [详见代码](src/components/MarkdownPreview/models/index.ts#L85) 中，支持灵活扩展和定制
+由于不同大模型的 API 响应数据结构存在差异，本项目通过**统一的模型映射机制**和**响应转换函数**实现了多模型的无缝集成。核心逻辑封装在 [详见代码](../src/components/MarkdownPreview/models/index.ts#L85) 中，支持灵活扩展和定制
 
 ### 核心设计
 
@@ -407,15 +407,15 @@ export const isGithubDeployed = process.env.VITE_ROUTER_MODE === 'hash'
 
 ### 🔬 主要实现
 
-- **modelMappingList**: 定义了支持的每个大模型的 modelName, 响应结果的处理以及请求 API 函数，[详见代码](src/components/MarkdownPreview/models/index.ts#L199)
-  - **transformStreamValue**: 包含了针对各种模型的响应结果转换函数，[详见代码](src/components/MarkdownPreview/models/index.ts#L199)
-- **MarkdownPreview 组件**: 接收 `model` 和 `transformStreamFn` props 属性，根据不同模型类型处理流式响应；可通过可选的 `contentClass` 为组件根节点添加页面级样式入口，[详见代码](src/components/MarkdownPreview/index.vue#L9)
+- **modelMappingList**: 定义了支持的每个大模型的 modelName, 响应结果的处理以及请求 API 函数，[详见代码](../src/components/MarkdownPreview/models/index.ts#L199)
+  - **transformStreamValue**: 包含了针对各种模型的响应结果转换函数，[详见代码](../src/components/MarkdownPreview/models/index.ts#L199)
+- **MarkdownPreview 组件**: 接收 `model` 和 `transformStreamFn` props 属性，根据不同模型类型处理流式响应；可通过可选的 `contentClass` 为组件根节点添加页面级样式入口，[详见代码](../src/components/MarkdownPreview/index.vue#L9)
 
 > 本项目的 `MarkdownPreview` 组件接收 `model` props 属性是为了回显不同的 `Placeholder`，如果你不需要可直接删掉该 props 参数及对应的回显逻辑
 
 ### 📚 使用示例
 
-在使用 [`MarkdownPreview`](src/components/MarkdownPreview/index.vue) 组件时，通过设置 `model` 和 `transformStreamFn` 属性来指定当前使用的大模型类型；需要为特定页面定制阅读宽度或状态对齐时，可传入可选的 `contentClass`：
+在使用 [`MarkdownPreview`](../src/components/MarkdownPreview/index.vue) 组件时，通过设置 `model` 和 `transformStreamFn` 属性来指定当前使用的大模型类型；需要为特定页面定制阅读宽度或状态对齐时，可传入可选的 `contentClass`：
 
 ```html
 <MarkdownPreview
@@ -449,7 +449,7 @@ export const useBusinessStore = defineStore('business-store', {
 })
 ```
 
-在模拟开发环境下，默认使用 `standard` 模型，同时也可以自定义修改为指定模型（尝试基于本项目二次开发的话，可以重点看下这个文件 [models/index.ts](src/components/MarkdownPreview/models/index.ts#L190)），具体的模型类型可以根据需求进行自己二次配置:
+在模拟开发环境下，默认使用 `standard` 模型，同时也可以自定义修改为指定模型（尝试基于本项目二次开发的话，可以重点看下这个文件 [models/index.ts](../src/components/MarkdownPreview/models/index.ts#L190)），具体的模型类型可以根据需求进行自己二次配置:
 
 ```ts
 /**
@@ -506,4 +506,4 @@ export const defaultModelName = defaultMockModelName
 
 ## License
 
-[MIT](./LICENSE) License | Copyright © 2020-PRESENT [Wisdom](https://github.com/pdsuwwz)
+[MIT](.././LICENSE) License | Copyright © 2020-PRESENT [Wisdom](https://github.com/pdsuwwz)

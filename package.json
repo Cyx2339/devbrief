@@ -1,7 +1,7 @@
 {
   "name": "devbrief",
   "version": "0.1.0",
-  "author": "Wisdom <pdsu.wwz@foxmail.com>",
+  "author": "程宇唏",
   "license": "MIT",
   "type": "module",
   "packageManager": "pnpm@10.33.0",
@@ -23,14 +23,6 @@
   "engines": {
     "node": ">= 22.12.x",
     "pnpm": ">= 10.x"
-  },
-  "homepage": "https://github.com/pdsuwwz/chatgpt-vue3-light-mvp",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pdsuwwz/chatgpt-vue3-light-mvp"
-  },
-  "bugs": {
-    "url": "https://github.com/pdsuwwz/chatgpt-vue3-light-mvp/issues"
   },
   "dependencies": {
     "@nzoth/toolkit": "^0.0.4",
@@ -102,5 +94,15 @@
     "vite-raw-plugin": "^1.0.2",
     "vue-eslint-parser": "^10.4.1"
   },
-  "description": "AI 技术工单整理助手，基于 chatgpt-vue3-light-mvp 二次开发"
+  "description": "AI 技术工单整理助手，基于 chatgpt-vue3-light-mvp 二次开发",
+  "contributors": [
+    {
+      "name": "Wisdom",
+      "url": "https://github.com/pdsuwwz"
+    }
+  ],
+  "upstream": {
+    "repository": "https://github.com/pdsuwwz/chatgpt-vue3-light-mvp",
+    "commit": "e0f4678c5f6c7476f3ee8dda6308657a401f5b18"
+  }
 }
