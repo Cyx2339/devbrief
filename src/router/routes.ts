@@ -5,8 +5,13 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Root',
     redirect: {
-      name: 'ChatRoot'
+      name: 'DevBrief'
     }
+  },
+  {
+    path: '/workbench',
+    name: 'DevBrief',
+    component: () => import('@/views/devbrief.vue')
   },
   ...childRoutes,
   {

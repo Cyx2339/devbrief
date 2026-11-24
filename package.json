@@ -1,19 +1,24 @@
 {
-  "name": "chatgpt-vue3-light-mvp",
-  "version": "0.0.1",
+  "name": "devbrief",
+  "version": "0.1.0",
   "author": "Wisdom <pdsu.wwz@foxmail.com>",
   "license": "MIT",
   "type": "module",
-  "packageManager": "pnpm@10.18.2",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "build:gh-pages": "cross-env VITE_ROUTER_MODE=hash pnpm build",
-    "preview": "vite preview --host",
+    "preview": "vite preview --host 127.0.0.1",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "stylelint": "stylelint .scss, .vue ./src",
-    "stylelint:fix": "stylelint --fix .scss, .vue ./src"
+    "stylelint:fix": "stylelint --fix .scss, .vue ./src",
+    "test": "node --experimental-strip-types --test tests/*.test.ts tests/workbench.test.cjs",
+    "build:preview": "node scripts/build-preview.mjs",
+    "demo": "python3 scripts/serve-preview.py",
+    "test:backend": "python3 -m unittest discover -s tests -p 'test_*.py' -v",
+    "typecheck:brief": "tsc -p tsconfig.devbrief.json"
   },
   "engines": {
     "node": ">= 22.12.x",
@@ -96,5 +101,6 @@
     "vite": "^8.0.16",
     "vite-raw-plugin": "^1.0.2",
     "vue-eslint-parser": "^10.4.1"
-  }
+  },
+  "description": "AI 技术工单整理助手，基于 chatgpt-vue3-light-mvp 二次开发"
 }
